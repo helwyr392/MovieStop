@@ -41,7 +41,7 @@ namespace Vidly.Controllers
             return View(customer);
         }
 
-        // GET: Customers/New
+        // GET: /Customers/New
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -53,7 +53,7 @@ namespace Vidly.Controllers
             return View("CustomerForm", viewModel);
         }
 
-        //GET: Customers/Edit
+        //GET: /Customers/Edit
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
@@ -70,7 +70,8 @@ namespace Vidly.Controllers
             return View("CustomerForm", viewModel);
         }
 
-        // POST: Customers/New
+        // POST: /Customers/New
+        // POST: /Customers/Edit
         [HttpPost]
         public ActionResult Save(Customer customer)
         {

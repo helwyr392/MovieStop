@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -10,6 +11,7 @@ namespace Vidly.Controllers
     {
         private ApplicationDbContext _context;
 
+        // Constructor
         public MoviesController()
         {
             _context = new ApplicationDbContext();
@@ -20,6 +22,7 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
+        // GET: /Movies
         public ViewResult Index()
         {
             var movies = _context.Movies.Include(m => m.Genre).ToList();
@@ -27,6 +30,7 @@ namespace Vidly.Controllers
             return View(movies);
         }
 
+        // GET: /Movies/Details
         public ActionResult Details(int id)
         {
             var movies = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
@@ -34,23 +38,37 @@ namespace Vidly.Controllers
             return View(movies);
         }
 
-        // GET: Movies/Random
-        //public ActionResult Random()
-        //{
-        //    var movie = new Movie() { Name = "Shrek!" };
-        //    var customers = new List<Customer>
-        //    {
-        //        new Customer { Name = "Customer 1" },
-        //        new Customer { Name = "Customer 2" }
-        //    };
+        // GET: /Movies/New
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
 
-        //    var viewModel = new RandomMovieViewModel
-        //    {
-        //        Movie = movie,
-        //        Customers = customers
-        //    };
+            return View("MovieForm", viewModel);
+        }
 
-        //    return View(viewModel);
-        //}
+        // GET: /Movies/Edit
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            var viewModel = new MovieFormViewModel
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        // POST: /Movies/New
+        // POST: /Movies/Edit
+
     }
 }
