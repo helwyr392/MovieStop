@@ -245,6 +245,10 @@
     <Compile Include="Migrations\201805151941002_AddFirstLastNameToCustomer.Designer.cs">
       <DependentUpon>201805151941002_AddFirstLastNameToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805171801121_ChangeCustomerBirthdateToRequired.cs" />
+    <Compile Include="Migrations\201805171801121_ChangeCustomerBirthdateToRequired.Designer.cs">
+      <DependentUpon>201805171801121_ChangeCustomerBirthdateToRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -378,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805151941002_AddFirstLastNameToCustomer.resx">
       <DependentUpon>201805151941002_AddFirstLastNameToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805171801121_ChangeCustomerBirthdateToRequired.resx">
+      <DependentUpon>201805171801121_ChangeCustomerBirthdateToRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

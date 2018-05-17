@@ -28,6 +28,6 @@ namespace Vidly.Models
         public int MembershipTypeID { get; set; }
 
         [Display(Name = "Date of Birth")]
-        public DateTime? Birthdate { get; set; }
+        public DateTime Birthdate { get; set; }
     }
 }
