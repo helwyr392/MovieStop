@@ -1,1 +1,1 @@
-# Vidly
+# MovieStop
