@@ -20,7 +20,7 @@ namespace Vidly.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        public bool? IsSubscribedToNewsletter { get; set; }
+        public bool IsSubscribedToNewsletter { get; set; }
 
         public MembershipType MembershipType { get; set; }
 
