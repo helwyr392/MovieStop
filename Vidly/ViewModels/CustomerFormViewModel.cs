@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Vidly.Models;
+using MovieStop.Models;
 
-namespace Vidly.ViewModels
+namespace MovieStop.ViewModels
 {
     public class CustomerFormViewModel
     {
