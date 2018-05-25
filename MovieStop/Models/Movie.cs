@@ -22,8 +22,10 @@ namespace MovieStop.Models
 
         public Genre Genre { get; set; }
 
+        [Required]
         public int GenreID { get; set; }
 
+        [Required]
         public int NumberInStock { get; set; }
     }
 }

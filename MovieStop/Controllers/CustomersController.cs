@@ -47,7 +47,6 @@ namespace MovieStop.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
-                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
 
@@ -62,9 +61,14 @@ namespace MovieStop.Controllers
             if (customer == null)
                 return HttpNotFound();
 
-            var viewModel = new CustomerFormViewModel
+            var viewModel = new CustomerFormViewModel(customer)
             {
-                Customer = customer,
+                Id = customer.Id,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter,
+                MembershipTypeID = customer.MembershipTypeID,
+                Birthdate = customer.Birthdate,
                 MembershipTypes = _context.MembershipTypes.ToList()
             };
 
@@ -79,9 +83,8 @@ namespace MovieStop.Controllers
         {
             if (!(ModelState.IsValid))
             {
-                var viewModel = new CustomerFormViewModel
+                var viewModel = new CustomerFormViewModel(customer)
                 {
-                    Customer = customer,
                     MembershipTypes = _context.MembershipTypes.ToList()
                 };
 

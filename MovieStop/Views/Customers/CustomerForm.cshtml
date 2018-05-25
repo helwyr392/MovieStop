@@ -15,33 +15,33 @@
 {
     @Html.ValidationSummary(true, "Please fix the following errors.")
     <div class="form-group">
-        @Html.LabelFor(m => m.Customer.FirstName)
-        @Html.TextBoxFor(m => m.Customer.FirstName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Customer.FirstName)
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FirstName)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Customer.LastName)
-        @Html.TextBoxFor(m => m.Customer.LastName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Customer.LastName)
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LastName)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Customer.Birthdate)
-        @Html.TextBoxFor(m => m.Customer.Birthdate, "{0:MMM dd yyyy}", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Customer.Birthdate)
+        @Html.LabelFor(m => m.Birthdate)
+        @Html.TextBoxFor(m => m.Birthdate, "{0:MMM dd yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Birthdate)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Customer.MembershipTypeID)
-        @Html.DropDownListFor(m => m.Customer.MembershipTypeID,
+        @Html.LabelFor(m => m.MembershipTypeID)
+        @Html.DropDownListFor(m => m.MembershipTypeID,
                                          new SelectList(Model.MembershipTypes, "Id", "Name"),
                                          "Select Membership Type", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Customer.MembershipTypeID)
+        @Html.ValidationMessageFor(m => m.MembershipTypeID)
     </div>
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter) Subscribed to Newsletter?
+            @Html.CheckBoxFor(m => m.IsSubscribedToNewsletter) Subscribed to Newsletter?
         </label>
     </div>
-    @Html.HiddenFor(m => m.Customer.Id)
+    @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-success">Save</button>
 }

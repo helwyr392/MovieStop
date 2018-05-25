@@ -24,9 +24,11 @@ namespace MovieStop.Models
 
         public MembershipType MembershipType { get; set; }
 
+        [Required]
         [Display(Name = "Membership Type")]
         public int MembershipTypeID { get; set; }
 
+        [Required]
         [Display(Name = "Date of Birth")]
         [Min18YearsIfMember]
         public DateTime Birthdate { get; set; }
