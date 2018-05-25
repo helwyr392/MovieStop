@@ -74,6 +74,7 @@ namespace MovieStop.Controllers
         // POST: /Customers/New
         // POST: /Customers/Edit
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!(ModelState.IsValid))
