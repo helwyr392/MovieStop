@@ -58,9 +58,12 @@ namespace MovieStop.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
+                Id = movie.Id,
+                Name = movie.Name,
+                ReleasedDate = movie.ReleasedDate,
+                NumberInStock = movie.NumberInStock,
                 Genres = _context.Genres.ToList()
             };
 
@@ -74,9 +77,8 @@ namespace MovieStop.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new MovieFormViewModel
+                var viewModel = new MovieFormViewModel(movie)
                 {
-                    Movie = movie,
                     Genres = _context.Genres.ToList()
                 };
 
