@@ -25,7 +25,7 @@ namespace MovieStop.Dtos
         public int MembershipTypeID { get; set; }
 
         [Required]
-        [Min18YearsIfMember]
+        //[Min18YearsIfMember]
         public DateTime Birthdate { get; set; }
     }
 }
