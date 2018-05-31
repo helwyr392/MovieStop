@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using MovieStop.Dtos;
 using MovieStop.Models;
+using MovieStop.Dtos;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web.Http;
 
 namespace MovieStop.Controllers.Api
@@ -21,7 +21,10 @@ namespace MovieStop.Controllers.Api
         // GET: /api/movies
         public IHttpActionResult GetMovies()
         {
-            var movieDtos = _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var movieDtos = _context.Movies
+                                    .Include(m => m.Genre)
+                                    .ToList()
+                                    .Select(Mapper.Map<Movie, MovieDto>);
 
             return Ok(movieDtos);
         }

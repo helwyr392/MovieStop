@@ -21,6 +21,8 @@ namespace MovieStop.Dtos
         [Required]
         public int GenreID { get; set; }
 
+        public GenreDto Genre { get; set; }
+
         [Range(1, 999)]
         public int NumberInStock { get; set; }
     }

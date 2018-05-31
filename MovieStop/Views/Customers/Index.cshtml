@@ -22,30 +22,30 @@
 {
     <script>
         // Add DataTables plugin
-        $('#customers').DataTable({
-            ajax: {
-                url: '/api/customers',
-                dataSrc: ""
-            },
-            columns: [
-                {
-                    data: {firstName: 'firstName', lastName: 'lastName'},
-                    render: function (data, type, customer) {
-                        return "<a href='/customers/details/" + customer.id + "'>"
-                                + customer.firstName + " " + customer.lastName + "</a>"
-                    }
-                },
-                { data: 'birthdate' },
-                {
-                    data: 'id',
-                    render: function (data, type, customer) {
-                        return "<a id='" + customer.id + "' class='btn btn-sm btn-warning' href='/customers/edit/"
-                                + customer.id + "'>Edit</a> " + 
-                                "<button data--customer-id=" + customer.id +
-                                " class='btn btn-sm btn-danger js--delete'>Delete</button>" }
-                }
-            ]
-        });
+        var table = $('#customers').DataTable({
+                        ajax: {
+                            url: '/api/customers',
+                            dataSrc: ''
+                        },
+                        columns: [
+                            {
+                                data: {firstName: 'firstName', lastName: 'lastName'},
+                                render: function (data, type, customer) {
+                                    return "<a href='/customers/details/" + customer.id + "'>"
+                                            + customer.firstName + " " + customer.lastName + "</a>"
+                                }
+                            },
+                            { data: 'membershipType.name' },
+                            {
+                                data: 'id',
+                                render: function (data, type, customer) {
+                                    return "<a id='" + customer.id + "' class='btn btn-sm btn-warning' href='/customers/edit/"
+                                            + customer.id + "'>Edit</a> " + 
+                                            "<button data--customer-id=" + customer.id +
+                                            " class='btn btn-sm btn-danger js--delete'>Delete</button>" }
+                            }
+                        ]
+                    });
 
         // Delete button click event
         $(document).ready(function () {
@@ -57,7 +57,7 @@
                             url: '/api/customers/' + btn.attr('data--customer-id'),
                             method: 'DELETE',
                             success: function () {
-                                btn.parents('tr').remove();
+                                table.row(btn.parents('tr')).remove().draw();
                             }
                         });
                     }
