@@ -15,10 +15,10 @@ namespace MovieStop.Models
         public string Name { get; set; }
 
         [Display(Name = "Release Date")]
-        public DateTime ReleasedDate { get; set; }
+        public DateTime? ReleasedDate { get; set; }
 
         [Display(Name = "Date Added")]
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
 
         public Genre Genre { get; set; }
 
