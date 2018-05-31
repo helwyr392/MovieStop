@@ -1,12 +1,10 @@
-﻿using System;
+﻿using AutoMapper;
+using MovieStop.Dtos;
+using MovieStop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using MovieStop.Models;
-using MovieStop.Dtos;
-using AutoMapper;
 
 namespace MovieStop.Controllers.Api
 {
@@ -21,15 +19,17 @@ namespace MovieStop.Controllers.Api
         }
 
         // GET: /api/movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IHttpActionResult GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var movieDtos = _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+
+            return Ok(movieDtos);
         }
 
         // GET: /api/movies/1
         public IHttpActionResult GetMovie(int id)
         {
-            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
 
             if (movie == null)
                 return NotFound();
@@ -49,7 +49,6 @@ namespace MovieStop.Controllers.Api
             _context.SaveChanges();
 
             movieDto.Id = movie.Id;
-
             return Created(new Uri(Request.RequestUri + "/" + movie.Id), movieDto);
         }
 
@@ -60,7 +59,7 @@ namespace MovieStop.Controllers.Api
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
+            var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);
 
             if (movieInDb == null)
                 return NotFound();
@@ -75,7 +74,7 @@ namespace MovieStop.Controllers.Api
         [HttpDelete]
         public IHttpActionResult DeleteMovie(int id)
         {
-            var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
+            var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);
 
             if (movieInDb == null)
                 return NotFound();
