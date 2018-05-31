@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using MovieStop.Dtos;
 using MovieStop.Models;
 
 namespace MovieStop.Dtos
@@ -23,6 +24,8 @@ namespace MovieStop.Dtos
 
         [Required]
         public int MembershipTypeID { get; set; }
+
+        public MembershipTypeDto MembershipType { get; set; }
 
         [Required]
         //[Min18YearsIfMember]
