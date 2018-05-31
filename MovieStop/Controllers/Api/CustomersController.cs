@@ -2,7 +2,6 @@
 using MovieStop.Models;
 using MovieStop.Dtos;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
@@ -46,9 +45,9 @@ namespace MovieStop.Controllers.Api
 
             var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
             _context.Customers.Add(customer);
+            customerDto.Id = customer.Id;
             _context.SaveChanges();
 
-            customerDto.Id = customer.Id;
             return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto);
         }
 
