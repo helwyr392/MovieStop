@@ -26,7 +26,10 @@ namespace MovieStop.Controllers
         // GET: /Movies
         public ViewResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View();
+
+            return View("ReadOnlyIndex");
         }
 
         // GET: /Movies/Details
@@ -38,6 +41,7 @@ namespace MovieStop.Controllers
         }
 
         // GET: /Movies/New
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
@@ -50,6 +54,7 @@ namespace MovieStop.Controllers
         }
 
         // GET: /Movies/Edit
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -71,6 +76,7 @@ namespace MovieStop.Controllers
 
         // POST: /Movies/New
         // POST: /Movies/Edit
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [HttpPost]
         public ActionResult Save(Movie movie)
         {
