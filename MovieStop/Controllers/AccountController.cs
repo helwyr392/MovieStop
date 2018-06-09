@@ -155,7 +155,8 @@ namespace MovieStop.Controllers
                 var user = new ApplicationUser {
                     UserName = model.AccountName,
                     Email = model.Email,
-                    AccountName = model.AccountName
+                    AccountName = model.AccountName,
+                    Phone = model.Phone
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

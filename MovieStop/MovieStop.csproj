@@ -281,6 +281,10 @@
     <Compile Include="Migrations\201806091745262_AddUserNameToApplicationUser.Designer.cs">
       <DependentUpon>201806091745262_AddUserNameToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806091927331_AddPhoneToAccountModel.cs" />
+    <Compile Include="Migrations\201806091927331_AddPhoneToAccountModel.Designer.cs">
+      <DependentUpon>201806091927331_AddPhoneToAccountModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -605,6 +609,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806091745262_AddUserNameToApplicationUser.resx">
       <DependentUpon>201806091745262_AddUserNameToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806091927331_AddPhoneToAccountModel.resx">
+      <DependentUpon>201806091927331_AddPhoneToAccountModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
