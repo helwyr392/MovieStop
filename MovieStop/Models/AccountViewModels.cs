@@ -65,6 +65,11 @@ namespace MovieStop.Models
     public class RegisterViewModel
     {
         [Required]
+        [StringLength(50)]
+        [Display(Name = "Username")]
+        public string AccountName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
