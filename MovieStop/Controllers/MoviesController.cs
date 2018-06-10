@@ -68,6 +68,7 @@ namespace MovieStop.Controllers
                 Name = movie.Name,
                 ReleasedDate = movie.ReleasedDate,
                 NumberInStock = movie.NumberInStock,
+                NumberAvailable = movie.NumberAvailable,
                 Genres = _context.Genres.ToList()
             };
 
@@ -87,7 +88,7 @@ namespace MovieStop.Controllers
                     Genres = _context.Genres.ToList()
                 };
 
-                return View("CustomerForm", viewModel);
+                return View("MovieForm", viewModel);
             }
 
             if (movie.Id == 0)
@@ -101,6 +102,7 @@ namespace MovieStop.Controllers
                 movieInDb.DateAdded = movie.DateAdded;
                 movieInDb.GenreID = movie.GenreID;
                 movieInDb.NumberInStock = movie.NumberInStock;
+                movieInDb.NumberAvailable = movie.NumberAvailable;
             }
 
             _context.SaveChanges();

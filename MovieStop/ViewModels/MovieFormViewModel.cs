@@ -30,6 +30,11 @@ namespace MovieStop.ViewModels
         [Range(1, 999)]
         public int? NumberInStock { get; set; }
 
+        [Required]
+        [Display(Name = "Number Available")]
+        [Range(1, 999)]
+        public int? NumberAvailable { get; set; }
+
         public string Title
         {
             get
@@ -49,6 +54,7 @@ namespace MovieStop.ViewModels
             Name = movie.Name;
             ReleasedDate = movie.ReleasedDate;
             NumberInStock = movie.NumberInStock;
+            NumberAvailable = movie.NumberAvailable;
             GenreID = movie.GenreID;
         }
     }

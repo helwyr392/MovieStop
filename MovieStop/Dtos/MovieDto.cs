@@ -25,5 +25,8 @@ namespace MovieStop.Dtos
 
         [Range(1, 999)]
         public int NumberInStock { get; set; }
+
+        [Range(1, 999)]
+        public int NumberAvailable { get; set; }
     }
 }

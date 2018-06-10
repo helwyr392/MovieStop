@@ -29,5 +29,9 @@ namespace MovieStop.Models
         [Required]
         [Range(1, 999)]
         public int NumberInStock { get; set; }
+
+        [Required]
+        [Range(1, 999)]
+        public int NumberAvailable { get; set; }
     }
 }
