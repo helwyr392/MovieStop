@@ -14,6 +14,7 @@ namespace MovieStop
                         "~/Scripts/respond.js",
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/datatables/jquery.datatables.js",
+                        "~/Scripts/typeahead.bundle.js",
                         "~/Scripts/datatables/datatables.bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -27,6 +28,7 @@ namespace MovieStop
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/typeahead.css",
                       "~/Content/site.css"));
         }
     }
